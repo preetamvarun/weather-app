@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/constants.dart';
+import 'package:weather_app/screens/ExploreScreen/Components/Text.dart';
+import 'package:weather_app/screens/ExploreScreen/Components/wind-humid.dart';
+
 
 late double stackWidth, stackHeight;
 
@@ -76,16 +79,7 @@ class Screen1 extends StatelessWidget {
                           bottom: 0,
                           child: Padding(
                             padding: const EdgeInsets.only(left: 25.0),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Text("Wind", style : kExploreTextStyle),
-                                Padding(
-                                  padding: const EdgeInsets.only(top : 10.0),
-                                  child: Text("9 km/h", style: kExploreTextStyle,),
-                                ),
-                              ],
-                            ),
+                            child: WindHumidColumn(text : "Wind", measure : "9km/h"),
                           ),
                         ),
                         Positioned(
@@ -93,16 +87,7 @@ class Screen1 extends StatelessWidget {
                           bottom: 0,
                           child: Padding(
                             padding: const EdgeInsets.only(right: 25.0),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Text("Humid", style: kExploreTextStyle,),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 10.0),
-                                  child: Text("79%", style: kExploreTextStyle,),
-                                ),
-                              ],
-                            ),
+                            child: WindHumidColumn(text: "Humid", measure: "79%",)
                           ),
                         ),
                       ],
@@ -118,22 +103,5 @@ class Screen1 extends StatelessWidget {
   }
 }
 
-class ExploreScreenTextWidget extends StatelessWidget {
 
-  final text, fontSize;
-  ExploreScreenTextWidget({this.text,this.fontSize});
 
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        text,
-        style: TextStyle(
-          color: Colors.white,
-          fontWeight: FontWeight.w700,
-          fontSize: fontSize,
-        ),
-      ),
-    );
-  }
-}
