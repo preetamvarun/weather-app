@@ -83,7 +83,7 @@ class Screen1 extends StatelessWidget {
                         bottom: 0,
                         child: Padding(
                           padding: const EdgeInsets.only(right: 25.0),
-                          child: WindHumidColumn(text: "Humid", measure: "79%",)
+                          child: WindHumidColumn(text: "Humidity", measure: "79%",)
                         ),
                       ),
                     ],
@@ -95,13 +95,13 @@ class Screen1 extends StatelessWidget {
                 children: [
                   Image(
                     image: AssetImage('images/wind.png'),
-                    height : 30.0,
+                    height : deviceHeight/25.5,
                     color: Colors.white,
                   ),
                   Image(
                     image: AssetImage('images/waves.png'),
                     color: Colors.white,
-                    height : 30.0,
+                    height : deviceHeight/25.5,
                   ),
                   Text(
                     "Friday 15, October",
@@ -112,11 +112,11 @@ class Screen1 extends StatelessWidget {
                   ),
                   Image(
                     image: AssetImage('images/cloudy.png'),
-                    height : 30.0,
+                    height : deviceHeight/25.5,
                   ),
                   Image(
                     image: AssetImage('images/storm.png'),
-                    height : 30.0,
+                    height : deviceHeight/25.5,
                   ),
                 ],
               ),
@@ -127,31 +127,34 @@ class Screen1 extends StatelessWidget {
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(25.0),
                   ),
-                  height: 75.0,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Image(
-                        image: AssetImage('images/home.png'),
-                        height : 25.0,
-                      ),Image(
-                        image: AssetImage('images/search.png'),
-                        height : 25.0,
-                      ),
-                      Text(
-                        "Explore",
-                        style: TextStyle(
-                          color: Colors.black,
+                  height : deviceHeight/10.5,
+                  child: LayoutBuilder(
+                    builder: (context,constraints) => Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Image(
+                          image: AssetImage('images/home.png'),
+                          height : constraints.maxHeight/2.65,
+                        ),Image(
+                          image: AssetImage('images/search.png'),
+                          height : constraints.maxHeight/2.65,
                         ),
-                      ),
-                      CircleAvatar(
-                        backgroundColor: Colors.yellow,
-                        child: Image(
-                          image: AssetImage('images/model.png'),
-                          height : 25.0,
+                        Text(
+                          "Explore",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: constraints.maxHeight/4.2,
+                          ),
                         ),
-                      )
-                    ],
+                        CircleAvatar(
+                          backgroundColor: Colors.yellow,
+                          child: Image(
+                            image: AssetImage('images/model.png'),
+                            height : constraints.maxHeight/2.65,
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
