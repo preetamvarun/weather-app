@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/constants.dart';
+import 'package:weather_app/Utilities/constants.dart';
 
 class WindHumidColumn extends StatelessWidget {
 
