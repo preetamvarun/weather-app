@@ -144,6 +144,7 @@ class Screen1 extends StatelessWidget {
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: constraints.maxHeight/4.2,
+                            fontFamily: "Open Sans",
                           ),
                         ),
                         CircleAvatar(
