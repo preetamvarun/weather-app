@@ -3,31 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:weather_app/Utilities/constants.dart';
 import 'package:weather_app/screens/ExploreScreen/Components/Text.dart';
 import 'package:weather_app/screens/ExploreScreen/Components/wind-humid.dart';
-import 'package:weather_app/Utilities/network_helper.dart';
 
-late double stackWidth, stackHeight, temperature;
-NetworkHelper obj = NetworkHelper();
+late double stackWidth, stackHeight;
 
-class Screen1 extends StatefulWidget {
+class Screen1 extends StatelessWidget{
 
-  @override
-  _Screen1State createState() => _Screen1State();
-}
-
-class _Screen1State extends State<Screen1> {
-
-  @override
-  void initState() {
-    print("getting into init state");
-    getCurrentWeather();
-    super.initState();
-  }
-
-  void getCurrentWeather() async{
-    print('getting current data');
-    temperature = await obj.getCurrentWeatherData();
-  }
-
+  final temperature, windSpeed, humidity;
+  Screen1({this.temperature, this.windSpeed, this.humidity});
 
   @override
   Widget build(BuildContext context) {
@@ -67,18 +49,18 @@ class _Screen1State extends State<Screen1> {
                     children: [
                       Positioned(
                       top: stackHeight/8,
-                      left: stackWidth/1.7,
+                      left: stackWidth/1.65,
                         child: Text(
                           temperature.toString(),
                           style: TextStyle(
-                            fontSize: stackWidth/2.5,
+                            fontSize: stackWidth/1.8,
                             color: Colors.white,
                           ),
                         ),
                       ),
                       Positioned(
-                        top: stackHeight/30,
-                        left: stackWidth/0.72,
+                        top: stackHeight/10,
+                        left: stackWidth/0.8,
                         child: Text("O",style: TextStyle(
                           fontSize: stackWidth/4.5,
                           color: Colors.white,
@@ -97,7 +79,7 @@ class _Screen1State extends State<Screen1> {
                         bottom: 0,
                         child: Padding(
                           padding: const EdgeInsets.only(left: 25.0),
-                          child: WindHumidColumn(text : "Wind", measure : "9km/h"),
+                          child: WindHumidColumn(text : "Wind", measure : windSpeed.toString()+"m/s"),
                         ),
                       ),
                       Positioned(
@@ -105,7 +87,7 @@ class _Screen1State extends State<Screen1> {
                         bottom: 0,
                         child: Padding(
                           padding: const EdgeInsets.only(right: 25.0),
-                          child: WindHumidColumn(text: "Humidity", measure: "79%",)
+                          child: WindHumidColumn(text: "Humidity", measure: humidity.toString()+"%"),
                         ),
                       ),
                     ],
