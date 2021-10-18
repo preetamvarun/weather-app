@@ -34,9 +34,9 @@ class ForeCastScreen extends StatelessWidget {
               Stack(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(30.0,0,30.0,10.0),
+                    padding : const EdgeInsets.fromLTRB(20.0, 0, 20.0, 10.0),
                     child: Container(
-                      height: deviceHeight/1.8,
+                      height: deviceHeight/1.55,
                       decoration: BoxDecoration(
                         color: Color(0xFFA6C7F5),
                         borderRadius: BorderRadius.circular(50.0),
@@ -46,7 +46,7 @@ class ForeCastScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(10.0,20.0,10.0,10.0),
                     child: Container(
-                      height: deviceHeight/1.8,
+                      height: deviceHeight/1.55,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(55.0),
@@ -56,7 +56,7 @@ class ForeCastScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(left : 30.0),
+                            padding: const EdgeInsets.only(left : 45.0),
                             child: Text(
                               "Future Weather",
                               style: TextStyle(
@@ -73,7 +73,7 @@ class ForeCastScreen extends StatelessWidget {
                                 width: deviceWidth/2,
                                 decoration: BoxDecoration(
                                   border: Border.all(color: Color(0xFFDCDCDC)),
-                                  borderRadius: BorderRadius.circular(25.0),
+                                  borderRadius: BorderRadius.circular(35.0),
                                 ),
                                 child: ForecastContainer(),
                               ),
@@ -86,7 +86,7 @@ class ForeCastScreen extends StatelessWidget {
                                 width: deviceWidth/2,
                                 decoration: BoxDecoration(
                                   border: Border.all(color: Color(0xFFDCDCDC)),
-                                  borderRadius: BorderRadius.circular(25.0),
+                                  borderRadius: BorderRadius.circular(35.0),
                                 ),
                                 child: ForecastContainer(),
                               ),
@@ -99,7 +99,7 @@ class ForeCastScreen extends StatelessWidget {
                                 width: deviceWidth/2,
                                 decoration: BoxDecoration(
                                   border: Border.all(color: Color(0xFFDCDCDC)),
-                                  borderRadius: BorderRadius.circular(25.0),
+                                  borderRadius: BorderRadius.circular(35.0),
                                 ),
                                 child: ForecastContainer(),
                               ),
