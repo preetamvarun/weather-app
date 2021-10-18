@@ -23,11 +23,7 @@ class Screen1 extends StatelessWidget{
       body: SafeArea(
         child: Container(
           decoration : BoxDecoration(
-            gradient: LinearGradient(
-              colors: kColors,
-              begin: Alignment.bottomLeft,
-              end: Alignment.topRight,
-            ),
+            gradient: kLinearGradient
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,

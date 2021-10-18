@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-List<Color>kColors = [Colors.blueAccent,Colors.blueAccent,Colors.lightBlueAccent,Colors.blueAccent];
-
 const kExploreTextStyle= TextStyle(
   color: Colors.white,
   fontSize: 20.0,
@@ -9,3 +7,9 @@ const kExploreTextStyle= TextStyle(
 );
 
 const kApiKey = "925d99619267060f7fe1b7e80476b077";
+
+const kLinearGradient = LinearGradient(
+  colors: [Colors.blueAccent,Colors.blueAccent,Colors.lightBlueAccent,Colors.blueAccent],
+  begin: Alignment.bottomLeft,
+  end: Alignment.topRight,
+);
