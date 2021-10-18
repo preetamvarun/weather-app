@@ -5,9 +5,9 @@ class ForecastContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(15.0),
+      padding: const EdgeInsets.all(25.0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Stack(
             children: [
@@ -17,7 +17,7 @@ class ForecastContainer extends StatelessWidget {
                   "14",
                   style: TextStyle(
                     color: Color(0xFF293E7E),
-                    fontSize: 50.0,
+                    fontSize: 30.0,
                   ),
                 ),
               ),
@@ -35,6 +35,7 @@ class ForecastContainer extends StatelessWidget {
             ],
           ),
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text('Monday', style: TextStyle(fontWeight: FontWeight.bold,)),
               Text("19 October", style: TextStyle(

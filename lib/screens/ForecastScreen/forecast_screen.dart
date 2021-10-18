@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:weather_app/Utilities/constants.dart';
 import 'package:weather_app/screens/ExploreScreen/Components/Text.dart';
 import 'package:weather_app/screens/ForecastScreen/Components/forecast_weather.dart';
+import 'package:weather_app/screens/ForecastScreen/Components/forecast_weather_circle_avatar.dart';
 
 class ForeCastScreen extends StatelessWidget {
   const ForeCastScreen({Key? key}) : super(key: key);
@@ -55,7 +56,7 @@ class ForeCastScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(left : 25.0),
+                            padding: const EdgeInsets.only(left : 30.0),
                             child: Text(
                               "Future Weather",
                               style: TextStyle(
@@ -67,18 +68,11 @@ class ForeCastScreen extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              CircleAvatar(
-                                backgroundColor: Color(0xFFF3F9FE),
-                                radius : 45.0,
-                                child: Image(
-                                  image: AssetImage('images/rain.png'),
-                                  height : 50.0,
-                                ),
-                              ),
+                              ForecastCircleAvatar(),
                               Container(
                                 width: deviceWidth/2,
                                 decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.grey),
+                                  border: Border.all(color: Color(0xFFDCDCDC)),
                                   borderRadius: BorderRadius.circular(25.0),
                                 ),
                                 child: ForecastContainer(),
@@ -87,18 +81,11 @@ class ForeCastScreen extends StatelessWidget {
                           ),Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              CircleAvatar(
-                                backgroundColor: Color(0xFFF3F9FE),
-                                radius : 45.0,
-                                child: Image(
-                                  image: AssetImage('images/rain.png'),
-                                  height : 50.0,
-                                ),
-                              ),
+                              ForecastCircleAvatar(),
                               Container(
                                 width: deviceWidth/2,
                                 decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.grey),
+                                  border: Border.all(color: Color(0xFFDCDCDC)),
                                   borderRadius: BorderRadius.circular(25.0),
                                 ),
                                 child: ForecastContainer(),
@@ -107,18 +94,11 @@ class ForeCastScreen extends StatelessWidget {
                           ),Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              CircleAvatar(
-                                backgroundColor: Color(0xFFF3F9FE),
-                                radius : 45.0,
-                                child: Image(
-                                  image: AssetImage('images/rain.png'),
-                                  height : 50.0,
-                                ),
-                              ),
+                              ForecastCircleAvatar(),
                               Container(
                                 width: deviceWidth/2,
                                 decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.grey),
+                                  border: Border.all(color: Color(0xFFDCDCDC)),
                                   borderRadius: BorderRadius.circular(25.0),
                                 ),
                                 child: ForecastContainer(),
@@ -138,4 +118,6 @@ class ForeCastScreen extends StatelessWidget {
     );
   }
 }
+
+
 
