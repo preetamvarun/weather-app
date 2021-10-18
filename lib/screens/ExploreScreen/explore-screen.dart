@@ -3,14 +3,34 @@ import 'package:flutter/material.dart';
 import 'package:weather_app/Utilities/constants.dart';
 import 'package:weather_app/screens/ExploreScreen/Components/Text.dart';
 import 'package:weather_app/screens/ExploreScreen/Components/wind-humid.dart';
+import 'package:weather_app/Utilities/network_helper.dart';
 
-late double stackWidth, stackHeight;
+late double stackWidth, stackHeight, temperature;
+NetworkHelper obj = NetworkHelper();
 
-class Screen1 extends StatelessWidget {
+class Screen1 extends StatefulWidget {
+
+  @override
+  _Screen1State createState() => _Screen1State();
+}
+
+class _Screen1State extends State<Screen1> {
+
+  @override
+  void initState() {
+    print("getting into init state");
+    getCurrentWeather();
+    super.initState();
+  }
+
+  void getCurrentWeather() async{
+    print('getting current data');
+    temperature = await obj.getCurrentWeatherData();
+  }
+
 
   @override
   Widget build(BuildContext context) {
-
     double deviceWidth = MediaQuery.of(context).size.width;
     double deviceHeight = MediaQuery.of(context).size.height;
     stackWidth = deviceWidth/2;
@@ -32,8 +52,8 @@ class Screen1 extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               ExploreScreenTextWidget(
-                text: "Los Angeles",
-                fontSize: deviceWidth/10.0,
+                text: "London",
+                fontSize: deviceWidth/10.5,
               ),
               ExploreScreenTextWidget(
                 text: "Chance of Rain is : 3%",
@@ -46,30 +66,32 @@ class Screen1 extends StatelessWidget {
                   child: Stack(
                     children: [
                       Positioned(
-                      left: stackWidth/2,
+                      top: stackHeight/8,
+                      left: stackWidth/1.7,
                         child: Text(
-                          "18",
+                          temperature.toString(),
                           style: TextStyle(
-                            fontSize: stackWidth/1.35,
+                            fontSize: stackWidth/2.5,
                             color: Colors.white,
                           ),
                         ),
                       ),
                       Positioned(
-                        left: stackWidth/0.78,
+                        top: stackHeight/30,
+                        left: stackWidth/0.72,
                         child: Text("O",style: TextStyle(
-                          fontSize: stackWidth/4.8,
+                          fontSize: stackWidth/4.5,
                           color: Colors.white,
                         ),),
                       ),
-                      Positioned(
-                        top: stackHeight/2.2,
-                        left : stackWidth/1.9,
-                        child: Image(
-                          image: AssetImage('images/rain.png'),
-                          height: stackHeight/1.8,
+                     Positioned(
+                          top: stackHeight/2.35,
+                          left : stackWidth/1.8,
+                          child: Image(
+                            image: AssetImage('images/rain.png'),
+                            height: stackHeight/1.8,
+                          ),
                         ),
-                      ),
                       Positioned(
                         left: 0,
                         bottom: 0,

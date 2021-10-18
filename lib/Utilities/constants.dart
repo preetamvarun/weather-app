@@ -7,3 +7,5 @@ const kExploreTextStyle= TextStyle(
   fontSize: 20.0,
   fontWeight: FontWeight.w600,
 );
+
+const kApiKey = "925d99619267060f7fe1b7e80476b077";
