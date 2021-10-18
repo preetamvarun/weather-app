@@ -8,8 +8,8 @@ late double stackWidth, stackHeight;
 
 class Screen1 extends StatelessWidget{
 
-  final temperature, windSpeed, humidity;
-  Screen1({this.temperature, this.windSpeed, this.humidity});
+  final temperature, windSpeed, humidity, weatherDescription, date;
+  Screen1({this.temperature, this.windSpeed, this.humidity, this.weatherDescription,this.date});
 
   @override
   Widget build(BuildContext context) {
@@ -38,8 +38,8 @@ class Screen1 extends StatelessWidget{
                 fontSize: deviceWidth/10.5,
               ),
               ExploreScreenTextWidget(
-                text: "Chance of Rain is : 3%",
-                fontSize: deviceWidth/22.0,
+                text: weatherDescription,
+                fontSize: deviceWidth/18.0,
               ),
               Center(
                 child: Container(
@@ -108,7 +108,7 @@ class Screen1 extends StatelessWidget{
                     height : deviceHeight/25.5,
                   ),
                   Text(
-                    "Friday 15, October",
+                    date,
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 16.0,

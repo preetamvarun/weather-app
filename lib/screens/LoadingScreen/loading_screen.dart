@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:weather_app/Utilities/network_helper.dart';
 import 'package:weather_app/screens/ExploreScreen/explore-screen.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:weather_app/Utilities/UILogic.dart';
 
 class LoadingScreen extends StatefulWidget {
 
@@ -22,11 +23,14 @@ class _LoadingScreenState extends State<LoadingScreen> {
     int temp = weatherData['main']['temp'].round();
     int humidity = weatherData['main']['humidity'].round();
     int windSpeed = weatherData['wind']['speed'].round();
+    String weatherDescription = weatherData['weather'][0]['description'];
+    String dateResult = UI().getDate();
+
     Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => Screen1(temperature: temp, humidity: humidity,
-        windSpeed: windSpeed,
+        windSpeed: windSpeed, weatherDescription: weatherDescription, date: dateResult,
         )
       ),
     );
