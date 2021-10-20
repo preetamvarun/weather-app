@@ -31,10 +31,10 @@ class _ScrollWeatherState extends State<ScrollWeather> {
                       AssetImage("images/thunderStorm.png") :
                       UI.forecastWeatherIds[index] < 600 ? AssetImage('images/rain.png')
                     : UI.forecastWeatherIds[index] < 700 ? AssetImage('images/snow.png')
-                    : UI.forecastWeatherIds[index] < 800 ? AssetImage('images/winds.png')
+                    : UI.forecastWeatherIds[index] < 800 ? AssetImage('images/windy.png')
                     : UI.forecastWeatherIds[index] == 800 ? AssetImage('images/clear-sky.png')
                     : UI.forecastWeatherIds[index] < 804 ? AssetImage('images/cloudy.png')
-                    : AssetImage('winds.png'),
+                    : AssetImage('wind.png'),
                       height : deviceWidth/7.5,
                     ),
                   ),

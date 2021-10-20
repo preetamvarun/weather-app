@@ -79,10 +79,10 @@ class Screen1 extends StatelessWidget{
                             AssetImage("images/thunderStorm.png") :
                             weatherID < 600 ? AssetImage('images/rain.png')
                                 : weatherID < 700 ? AssetImage('images/snow.png')
-                                : weatherID < 800 ? AssetImage('images/winds.png')
+                                : weatherID < 800 ? AssetImage('images/windy.png')
                                 : weatherID == 800 ? AssetImage('images/clear-sky.png')
-                                : weatherID <= 804 ? AssetImage('images/cloudy.png')
-                                : AssetImage('winds.png'),
+                                : weatherID < 804 ? AssetImage('images/cloudy.png')
+                                : AssetImage('wind.png'),
                             height: stackHeight/2.0,
                           ),
                         ),
