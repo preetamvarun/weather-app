@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 const kExploreTextStyle= TextStyle(
   color: Colors.white,
-  fontSize: 20.0,
+  fontSize: 40.0,
   fontWeight: FontWeight.w600,
 );
 

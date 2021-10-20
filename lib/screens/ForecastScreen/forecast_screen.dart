@@ -2,9 +2,20 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:weather_app/Utilities/constants.dart';
 import 'package:weather_app/screens/ExploreScreen/Components/Text.dart';
-import 'package:weather_app/screens/ForecastScreen/Components/forecast_row.dart';
+import 'package:weather_app/screens/ForecastScreen/Components/scroll-weather.dart';
 
-class ForeCastScreen extends StatelessWidget {
+class ForeCastScreen extends StatefulWidget {
+
+  @override
+  State<ForeCastScreen> createState() => _ForeCastScreenState();
+}
+
+class _ForeCastScreenState extends State<ForeCastScreen> {
+  ScrollController _controller = new ScrollController();
+
+  final List<String> entries = <String>['A', 'B', 'C'];
+
+  final List<int> colorCodes = <int>[600, 500, 100];
 
   @override
   Widget build(BuildContext context) {
@@ -20,15 +31,15 @@ class ForeCastScreen extends StatelessWidget {
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               ExploreScreenTextWidget(
                 text: "London",
-                fontSize: deviceWidth/11.5,
+                fontSize: deviceWidth/7.5,
               ),
               ExploreScreenTextWidget(
                 text: "Today's weather",
-                fontSize: deviceWidth/22.0,
+                fontSize: deviceWidth/20.0,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -67,48 +78,27 @@ class ForeCastScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              Stack(
-                children: [
-                  Padding(
-                    padding : const EdgeInsets.fromLTRB(20.0, 0, 20.0, 8.0),
-                    child: Container(
-                      height: deviceHeight/1.7,
+              Expanded(
+                child: Stack(
+                  children: [
+                    Container(
                       decoration: BoxDecoration(
                         color: Color(0xFFA6C7F5),
-                        borderRadius: BorderRadius.circular(50.0),
+                        borderRadius: BorderRadius.circular(0.0),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(10.0,20.0,10.0,8.0),
-                    child: Container(
-                      height: deviceHeight/1.7,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(60.0),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left : 50.0),
-                            child: Text(
-                              "Future Weather",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 25.0,
-                              ),
-                            ),
-                          ),
-                          ForecastRow(),
-                          ForecastRow(),
-                          ForecastRow(),
-                        ],
+                    Padding(
+                      padding: const EdgeInsets.only(top: 15.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(0.0),
+                        ),
+                        child: ScrollWeather()
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ],
           ),
@@ -119,5 +109,23 @@ class ForeCastScreen extends StatelessWidget {
 }
 
 
-
-
+// Padding(
+// padding: const EdgeInsets.only(left : 50.0),
+// child: Text(
+// "Future Weather",
+// style: TextStyle(
+// fontWeight: FontWeight.bold,
+// fontSize: 25.0,
+// ),
+// ),
+// ),
+//
+// Column(
+// crossAxisAlignment: CrossAxisAlignment.stretch,
+// mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+// children: [
+// ForecastRow(),
+// ForecastRow(),
+// ForecastRow(),
+// ],
+// ),
