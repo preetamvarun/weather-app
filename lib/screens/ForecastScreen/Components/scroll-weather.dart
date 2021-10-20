@@ -15,8 +15,7 @@ class _ScrollWeatherState extends State<ScrollWeather> {
   Widget build(BuildContext context) {
     return ListView.builder(
         scrollDirection: Axis.vertical,
-        shrinkWrap: false,
-        itemCount : 5,
+        itemCount : 50,
         itemBuilder : (BuildContext context, int index){
           return Padding(
               padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 10.0),

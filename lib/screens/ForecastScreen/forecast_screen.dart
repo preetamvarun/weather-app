@@ -4,18 +4,7 @@ import 'package:weather_app/Utilities/constants.dart';
 import 'package:weather_app/screens/ExploreScreen/Components/Text.dart';
 import 'package:weather_app/screens/ForecastScreen/Components/scroll-weather.dart';
 
-class ForeCastScreen extends StatefulWidget {
-
-  @override
-  State<ForeCastScreen> createState() => _ForeCastScreenState();
-}
-
-class _ForeCastScreenState extends State<ForeCastScreen> {
-  ScrollController _controller = new ScrollController();
-
-  final List<String> entries = <String>['A', 'B', 'C'];
-
-  final List<int> colorCodes = <int>[600, 500, 100];
+class ForeCastScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {

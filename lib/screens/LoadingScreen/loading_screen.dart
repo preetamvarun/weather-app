@@ -4,6 +4,7 @@ import 'package:weather_app/screens/ExploreScreen/explore-screen.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:weather_app/Utilities/UILogic.dart';
 import 'package:weather_app/screens/ForecastScreen/forecast_screen.dart';
+import 'package:weather_app/practice.dart';
 
 
 class LoadingScreen extends StatefulWidget {
