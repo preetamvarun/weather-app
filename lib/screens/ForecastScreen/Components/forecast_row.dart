@@ -7,7 +7,6 @@ class ForecastRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double deviceWidth = MediaQuery.of(context).size.width;
-    double deviceHeight = MediaQuery.of(context).size.height;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
@@ -16,7 +15,7 @@ class ForecastRow extends StatelessWidget {
           width: deviceWidth/2,
           decoration: BoxDecoration(
             border: Border.all(color: Color(0xFFDCDCDC)),
-            borderRadius: BorderRadius.circular(35.0),
+            borderRadius: BorderRadius.circular(45.0),
           ),
           child: ForecastContainer(),
         ),

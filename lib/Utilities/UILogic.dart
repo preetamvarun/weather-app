@@ -17,6 +17,10 @@ class UI{
     12: "December"
   };
 
+  static List<int>forecastTemps = [];
+  static List<String> dates = [];
+
+
   String getDate(){
     var date = DateTime.now();
     String result = DateFormat('EEEE').format(date) +" "+ date.day.toString() + "," + month[date.month].toString();

@@ -37,7 +37,7 @@ class ForeCastScreen extends StatelessWidget {
                     padding: const EdgeInsets.fromLTRB(0,8.0,10.0,0),
                     child: Image(
                       image: AssetImage("images/rain.png"),
-                      height : 110.0,
+                      height : deviceHeight/8,
                     ),
                   ),
                   Stack(
@@ -48,7 +48,7 @@ class ForeCastScreen extends StatelessWidget {
                           "14",
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 110.0,
+                            fontSize: deviceHeight/7.5,
                           ),
                         ),
                       ),
@@ -70,20 +70,32 @@ class ForeCastScreen extends StatelessWidget {
               Expanded(
                 child: Stack(
                   children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Color(0xFFA6C7F5),
-                        borderRadius: BorderRadius.circular(0.0),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(8.0, 8, 8, 0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Color(0xFFA6C7F5),
+                          borderRadius: BorderRadius.vertical(
+                            top: Radius.circular(60.0),
+                            bottom: Radius.zero,
+                          )
+                        ),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 15.0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(0.0),
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(8.0, 8, 8, 0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.vertical(
+                                top : Radius.circular(50.0),
+                                bottom :Radius.zero,
+                            ),
+                          ),
+                          child: ScrollWeather()
                         ),
-                        child: ScrollWeather()
                       ),
                     ),
                   ],
@@ -96,25 +108,3 @@ class ForeCastScreen extends StatelessWidget {
     );
   }
 }
-
-
-// Padding(
-// padding: const EdgeInsets.only(left : 50.0),
-// child: Text(
-// "Future Weather",
-// style: TextStyle(
-// fontWeight: FontWeight.bold,
-// fontSize: 25.0,
-// ),
-// ),
-// ),
-//
-// Column(
-// crossAxisAlignment: CrossAxisAlignment.stretch,
-// mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-// children: [
-// ForecastRow(),
-// ForecastRow(),
-// ForecastRow(),
-// ],
-// ),

@@ -8,12 +8,15 @@ class ExploreScreenTextWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text(
-        text,
-        style: TextStyle(
-          color: Colors.white,
-          fontWeight: FontWeight.w700,
-          fontSize: fontSize,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical : 5.0, horizontal : 0.0),
+        child: Text(
+          text,
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.w700,
+            fontSize: fontSize,
+          ),
         ),
       ),
     );
