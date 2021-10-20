@@ -39,6 +39,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
 
     String dateResult = UI().getDate();
 
+
     Navigator.push(
       context,
       MaterialPageRoute(

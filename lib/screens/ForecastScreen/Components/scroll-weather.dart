@@ -65,7 +65,7 @@ class _ScrollWeatherState extends State<ScrollWeather> {
                             children: [
                               Padding(
                                 padding: const EdgeInsets.only(bottom : 10.0),
-                                child: Text('Monday', style: TextStyle(fontWeight: FontWeight.bold)),
+                                child: Text(UI.month[UI.forecastDates[index].split("-")[1]].toString() + " "+ UI.forecastDates[index].split("-")[2], style: TextStyle(fontSize : 13.0)),
                               ),
                               Text(UI.forecastTimes[index].toString()),
                             ],
