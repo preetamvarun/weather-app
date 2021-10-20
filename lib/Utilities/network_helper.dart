@@ -4,6 +4,8 @@ import 'constants.dart';
 
 class NetworkHelper{
 
+  static List<int>forecastedTemperatures = [];
+
   Future getCurrentWeatherData() async{
     http.Response res = await http.get(Uri.parse('https://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid=$kApiKey'));
     if(res.statusCode == 200){
@@ -13,4 +15,16 @@ class NetworkHelper{
       return "404";
     }
   }
+
+  Future getForecastedWeatherData() async{
+    http.Response res = await http.get(Uri.parse('https://api.openweathermap.org/data/2.5/forecast?q=London&units=metric&appid=$kApiKey'));
+    if(res.statusCode == 200){
+      var forecastWeatherData = jsonDecode(res.body);
+      return forecastWeatherData;
+    }
+    else{
+      print("Failed");
+    }
+  }
+
 }

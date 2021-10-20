@@ -9,7 +9,7 @@ class ForecastCircleAvatar extends StatelessWidget {
       radius : 45.0,
       child: Image(
         image: AssetImage('images/rain.png'),
-        height : 50.0,
+        height : 45.0,
       ),
     );
   }
