@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:weather_app/Utilities/constants.dart';
 import 'package:weather_app/screens/ExploreScreen/Components/Text.dart';
 import 'package:weather_app/screens/ExploreScreen/Components/wind-humid.dart';
+import 'package:weather_app/screens/ForecastScreen/forecast_screen.dart';
 
 late double stackWidth, stackHeight;
 
@@ -13,6 +14,7 @@ class Screen1 extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
+
     double deviceWidth = MediaQuery.of(context).size.width;
     double deviceHeight = MediaQuery.of(context).size.height;
     stackWidth = deviceWidth/2;
@@ -174,9 +176,17 @@ class Screen1 extends StatelessWidget{
                         ),
                         CircleAvatar(
                           backgroundColor: Colors.yellow,
-                          child: Image(
-                            image: AssetImage('images/model.png'),
-                            height : constraints.maxHeight/2.65,
+                          child: GestureDetector(
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(
+                                  builder: (context) => ForeCastScreen()
+                                )
+                              );
+                            },
+                            child: Image(
+                              image: AssetImage('images/model.png'),
+                              height : constraints.maxHeight/2.65,
+                            ),
                           ),
                         )
                       ],

@@ -15,52 +15,50 @@ class LoadingScreen extends StatefulWidget {
 
 class _LoadingScreenState extends State<LoadingScreen> {
 
-  // @override
-  // void initState() {
-  //   getCurrentWeather();
-  //   super.initState();
-  // }
+  @override
+  void initState() {
+    getCurrentWeather();
+    super.initState();
+  }
 
   void getCurrentWeather() async{
+
     var weatherData = await NetworkHelper().getCurrentWeatherData();
     var forecastWeatherData = await NetworkHelper().getForecastedWeatherData();
+
     for(int i = 0; i < forecastWeatherData['list'].length; i++){
       UI.forecastTemps.add(forecastWeatherData['list'][i]['main']['temp'].round());
       UI.forecastDates.add(forecastWeatherData['list'][i]['dt_txt'].split(" ")[0]);
     }
+
     int temp = weatherData['main']['temp'].round();
     int humidity = weatherData['main']['humidity'].round();
     int windSpeed = weatherData['wind']['speed'].round();
     String weatherDescription = weatherData['weather'][0]['description'];
+
     String dateResult = UI().getDate();
-    print(UI.forecastTemps);
-    print(UI.forecastDates);
+
     Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => Screen1(temperature: temp, humidity: humidity,
-        windSpeed: windSpeed, weatherDescription: weatherDescription, date: dateResult,
-        )
-      ),
-    );
-    // ~ 12.84, ~ 97 , ~ 2.57 (m/s)
+        windSpeed: windSpeed, weatherDescription: weatherDescription, date: dateResult,)),);
   }
 
   @override
   Widget build(BuildContext context) {
-    return ForeCastScreen();
+    return Scaffold(
+      backgroundColor: Colors.blueGrey,
+      body: Center(
+          child : SpinKitDoubleBounce(
+            color: Colors.white,
+            size : 100.0,
+          )
+      ),
+    );
   }
 }
 
-// Scaffold(
-// backgroundColor: Colors.blueGrey,
-// body: Center(
-// child : SpinKitDoubleBounce(
-// color: Colors.white,
-// size : 100.0,
-// )
-// ),
-// );
 
 
 // Input for future reference
