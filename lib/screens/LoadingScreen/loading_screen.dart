@@ -20,29 +20,31 @@ class _LoadingScreenState extends State<LoadingScreen> {
   //   getCurrentWeather();
   //   super.initState();
   // }
-  //
-  // void getCurrentWeather() async{
-  //   var weatherData = await NetworkHelper().getCurrentWeatherData();
-  //   var forecastWeatherData = await NetworkHelper().getForecastedWeatherData();
-  //   for(int i = 0; i < forecastWeatherData['list'].length; i++){
-  //     print(forecastWeatherData['list'][i]['main']['temp'].round());
-  //     print(forecastWeatherData['list'][i]['dt_txt'].split(" ")[0]);
-  //   }
-  //   int temp = weatherData['main']['temp'].round();
-  //   int humidity = weatherData['main']['humidity'].round();
-  //   int windSpeed = weatherData['wind']['speed'].round();
-  //   String weatherDescription = weatherData['weather'][0]['description'];
-  //   String dateResult = UI().getDate();
-  //   Navigator.push(
-  //     context,
-  //     MaterialPageRoute(
-  //       builder: (context) => Screen1(temperature: temp, humidity: humidity,
-  //       windSpeed: windSpeed, weatherDescription: weatherDescription, date: dateResult,
-  //       )
-  //     ),
-  //   );
-  //   // ~ 12.84, ~ 97 , ~ 2.57 (m/s)
-  // }
+
+  void getCurrentWeather() async{
+    var weatherData = await NetworkHelper().getCurrentWeatherData();
+    var forecastWeatherData = await NetworkHelper().getForecastedWeatherData();
+    for(int i = 0; i < forecastWeatherData['list'].length; i++){
+      UI.forecastTemps.add(forecastWeatherData['list'][i]['main']['temp'].round());
+      UI.forecastDates.add(forecastWeatherData['list'][i]['dt_txt'].split(" ")[0]);
+    }
+    int temp = weatherData['main']['temp'].round();
+    int humidity = weatherData['main']['humidity'].round();
+    int windSpeed = weatherData['wind']['speed'].round();
+    String weatherDescription = weatherData['weather'][0]['description'];
+    String dateResult = UI().getDate();
+    print(UI.forecastTemps);
+    print(UI.forecastDates);
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => Screen1(temperature: temp, humidity: humidity,
+        windSpeed: windSpeed, weatherDescription: weatherDescription, date: dateResult,
+        )
+      ),
+    );
+    // ~ 12.84, ~ 97 , ~ 2.57 (m/s)
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,3 +61,15 @@ class _LoadingScreenState extends State<LoadingScreen> {
 // )
 // ),
 // );
+
+
+// Input for future reference
+
+// [17, 16, 14, 10, 10, 9, 9, 11, 11, 9, 8, 8, 7, 7, 9, 11, 12, 11, 10, 9, 8, 8, 10, 13, 13, 12,
+// 11, 10, 11, 10, 12, 14, 14, 13, 13, 13, 11, 10, 12, 15]
+// [2021-10-20, 2021-10-20, 2021-10-20, 2021-10-21, 2021-10-21, 2021-10-21, 2021-10-21, 2021-10-21,
+// 2021-10-21, 2021-10-21, 2021-10-21, 2021-10-22, 2021-10-22, 2021-10-22, 2021-10-22, 2021-10-22,
+// 2021-10-22, 2021-10-22, 2021-10-22, 2021-10-23, 2021-10-23, 2021-10-23, 2021-10-23, 2021-10-23,
+// 2021-10-23, 2021-10-23, 2021-10-23, 2021-10-24, 2021-10-24, 2021-10-24, 2021-10-24, 2021-10-24,
+// 2021-10-24, 2021-10-24, 2021-10-24, 2021-10-25, 2021-10-25, 2021-10-25, 2021-10-25, 2021-10-25]
+//

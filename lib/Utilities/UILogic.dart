@@ -18,7 +18,7 @@ class UI{
   };
 
   static List<int>forecastTemps = [];
-  static List<String> dates = [];
+  static List<String> forecastDates = [];
 
 
   String getDate(){

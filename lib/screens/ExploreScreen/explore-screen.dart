@@ -35,46 +35,53 @@ class Screen1 extends StatelessWidget{
               ),
               ExploreScreenTextWidget(
                 text: weatherDescription,
-                fontSize: deviceWidth/18.0,
+                fontSize: deviceWidth/20.0,
               ),
               Center(
                 child: Container(
-                  width: deviceWidth, // stackWidth will be half of the screen width
                   height: stackHeight,
                   child: Stack(
                     children: [
                       Positioned(
                       top: stackHeight/8,
                       left: stackWidth/1.65,
-                        child: Text(
-                          temperature.toString(),
-                          style: TextStyle(
-                            fontSize: stackWidth/1.8,
-                            color: Colors.white,
+                        child: ShaderMask(
+                          shaderCallback: (Rect x){
+                            return kLinearTextGradient.createShader(x);
+                          },
+                          child: Text(
+                            temperature.toString(),
+                              style: Theme.of(context).textTheme.headline4!.copyWith(
+                                fontSize: stackWidth / 1.8,
+                                color: Colors.white,
+                              ),
                           ),
                         ),
                       ),
                       Positioned(
                         top: stackHeight/10,
                         left: stackWidth/0.8,
-                        child: Text("O",style: TextStyle(
-                          fontSize: stackWidth/4.5,
-                          color: Colors.white,
-                        ),),
+                        child: Text(
+                          "o",
+                          style: TextStyle(
+                            fontSize: stackWidth / 4.5,
+                            color : Colors.white70,
+                          )
+                        )
                       ),
                      Positioned(
                           top: stackHeight/2.35,
-                          left : stackWidth/1.8,
+                          left : stackWidth/1.85,
                           child: Image(
                             image: AssetImage('images/rain.png'),
-                            height: stackHeight/1.8,
+                            height: stackHeight/2.0,
                           ),
                         ),
                       Positioned(
                         left: 0,
                         bottom: 0,
                         child: Padding(
-                          padding: const EdgeInsets.only(left: 25.0),
+                          padding: const EdgeInsets.only(left: 18.0),
                           child: WindHumidColumn(text : "Wind", measure : windSpeed.toString()+"m/s"),
                         ),
                       ),
@@ -82,11 +89,29 @@ class Screen1 extends StatelessWidget{
                         right: 0,
                         bottom: 0,
                         child: Padding(
-                          padding: const EdgeInsets.only(right: 25.0),
+                          padding: const EdgeInsets.only(right: 18.0),
                           child: WindHumidColumn(text: "Humidity", measure: humidity.toString()+"%"),
                         ),
                       ),
                     ],
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    decoration : BoxDecoration(
+                      color : Colors.black,
+                    ),
+                    child: Center(
+                      child : Text(
+                        "Graph section will be added here",
+                        style : TextStyle(
+                          color : Colors.white,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),

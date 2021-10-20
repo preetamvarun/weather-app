@@ -44,22 +44,27 @@ class ForeCastScreen extends StatelessWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.fromLTRB(0, 8, 10, 0),
-                        child: Text(
-                          "14",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: deviceHeight/7.5,
+                        child: ShaderMask(
+                          shaderCallback: (Rect x){
+                            return kLinearTextGradient.createShader(x);
+                          },
+                          child: Text(
+                            "14",
+                            style:  Theme.of(context).textTheme.headline4!.copyWith(
+                              fontSize: deviceHeight/7.5,
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       ),
                       Positioned(
-                        top: 0,
+                        top: 10,
                         right : 0,
                         child: Text(
                           "o",
                           style: TextStyle(
-                            color : Colors.white,
-                            fontSize: 30.0,
+                            color : Colors.white70,
+                            fontSize: 25.0,
                           ),
                         ),
                       ),
