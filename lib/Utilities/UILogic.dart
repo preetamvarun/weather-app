@@ -2,7 +2,7 @@ import 'package:intl/intl.dart';
 
 class UI{
 
-  Map<int,String> month = {
+  static Map<int,String> month = {
     1: "January",
     2: "February",
     3: "March",
@@ -19,6 +19,7 @@ class UI{
 
   static List<int>forecastTemps = [];
   static List<String> forecastDates = [];
+  static List<String> forecastTimes = [];
 
 
   String getDate(){

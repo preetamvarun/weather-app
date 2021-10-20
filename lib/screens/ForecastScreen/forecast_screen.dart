@@ -6,6 +6,9 @@ import 'package:weather_app/screens/ForecastScreen/Components/scroll-weather.dar
 
 class ForeCastScreen extends StatelessWidget {
 
+  final temperature;
+  ForeCastScreen({this.temperature});
+
   @override
   Widget build(BuildContext context) {
     double deviceWidth = MediaQuery.of(context).size.width;
@@ -49,7 +52,7 @@ class ForeCastScreen extends StatelessWidget {
                             return kLinearTextGradient.createShader(x);
                           },
                           child: Text(
-                            "14",
+                            temperature.toString(),
                             style:  Theme.of(context).textTheme.headline4!.copyWith(
                               fontSize: deviceHeight/7.5,
                               color: Colors.white,

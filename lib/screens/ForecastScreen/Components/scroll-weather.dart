@@ -64,10 +64,10 @@ class _ScrollWeatherState extends State<ScrollWeather> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: const EdgeInsets.only(bottom : 4.0),
+                                padding: const EdgeInsets.only(bottom : 10.0),
                                 child: Text('Monday', style: TextStyle(fontWeight: FontWeight.bold)),
                               ),
-                              Text("19 October"),
+                              Text(UI.forecastTimes[index].toString()),
                             ],
                           )
                         ],

@@ -73,7 +73,7 @@ class Screen1 extends StatelessWidget{
                       ),
                      Positioned(
                           top: stackHeight/2.35,
-                          left : stackWidth/1.85,
+                          left : stackWidth/1.73,
                           child: Image(
                             image: AssetImage('images/rain.png'),
                             height: stackHeight/2.0,
@@ -101,7 +101,7 @@ class Screen1 extends StatelessWidget{
               ),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(15.0),
                   child: Container(
                     decoration : BoxDecoration(
                       color : Colors.black,
@@ -122,33 +122,33 @@ class Screen1 extends StatelessWidget{
                 children: [
                   Image(
                     image: AssetImage('images/wind.png'),
-                    height : deviceHeight/25.5,
+                    height : deviceHeight/26,
                     color: Colors.white,
                   ),
                   Image(
                     image: AssetImage('images/waves.png'),
                     color: Colors.white,
-                    height : deviceHeight/25.5,
+                    height : deviceHeight/26,
                   ),
                   Text(
                     date,
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 16.0,
+                      fontSize: 14.0,
                     ),
                   ),
                   Image(
                     image: AssetImage('images/cloudy.png'),
-                    height : deviceHeight/25.5,
+                    height : deviceHeight/26,
                   ),
                   Image(
                     image: AssetImage('images/storm.png'),
-                    height : deviceHeight/25.5,
+                    height : deviceHeight/26,
                   ),
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10.0,horizontal: 20.0),
+                padding: const EdgeInsets.symmetric(vertical: 5.0,horizontal: 15.0),
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.white,
@@ -179,7 +179,7 @@ class Screen1 extends StatelessWidget{
                           child: GestureDetector(
                             onTap: (){
                               Navigator.push(context, MaterialPageRoute(
-                                  builder: (context) => ForeCastScreen()
+                                  builder: (context) => ForeCastScreen(temperature: temperature,)
                                 )
                               );
                             },

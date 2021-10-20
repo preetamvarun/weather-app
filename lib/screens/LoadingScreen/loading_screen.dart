@@ -29,6 +29,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
     for(int i = 0; i < forecastWeatherData['list'].length; i++){
       UI.forecastTemps.add(forecastWeatherData['list'][i]['main']['temp'].round());
       UI.forecastDates.add(forecastWeatherData['list'][i]['dt_txt'].split(" ")[0]);
+      UI.forecastTimes.add(forecastWeatherData['list'][i]['dt_txt'].split(" ")[1]);
     }
 
     int temp = weatherData['main']['temp'].round();
