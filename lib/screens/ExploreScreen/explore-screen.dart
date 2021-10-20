@@ -4,6 +4,7 @@ import 'package:weather_app/Utilities/constants.dart';
 import 'package:weather_app/screens/ExploreScreen/Components/Text.dart';
 import 'package:weather_app/screens/ExploreScreen/Components/wind-humid.dart';
 import 'package:weather_app/screens/ForecastScreen/forecast_screen.dart';
+import 'package:weather_app/Utilities/UILogic.dart';
 
 late double stackWidth, stackHeight;
 
@@ -75,14 +76,7 @@ class Screen1 extends StatelessWidget{
                           top: stackHeight/2.35,
                           left : stackWidth/1.73,
                           child: Image(
-                            image : weatherID < 300 ?
-                            AssetImage("images/thunderStorm.png") :
-                            weatherID < 600 ? AssetImage('images/rain.png')
-                                : weatherID < 700 ? AssetImage('images/snow.png')
-                                : weatherID < 800 ? AssetImage('images/windy.png')
-                                : weatherID == 800 ? AssetImage('images/clear-sky.png')
-                                : weatherID < 804 ? AssetImage('images/cloudy.png')
-                                : AssetImage('wind.png'),
+                            image : AssetImage(UI.getCurrentImageName(weatherID)),
                             height: stackHeight/2.0,
                           ),
                         ),
