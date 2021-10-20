@@ -23,7 +23,21 @@ class _ScrollWeatherState extends State<ScrollWeather> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  ForecastCircleAvatar(),
+                  CircleAvatar(
+                  backgroundColor: Color(0xFFF3F9FE),
+                  radius : deviceWidth/8.5,
+                  child: Image(
+                      image : UI.forecastWeatherIds[index] < 300 ?
+                      AssetImage("images/thunderStorm.png") :
+                      UI.forecastWeatherIds[index] < 600 ? AssetImage('images/rain.png')
+                    : UI.forecastWeatherIds[index] < 700 ? AssetImage('images/snow.png')
+                    : UI.forecastWeatherIds[index] < 800 ? AssetImage('images/winds.png')
+                    : UI.forecastWeatherIds[index] == 800 ? AssetImage('images/clear-sky.png')
+                    : UI.forecastWeatherIds[index] < 804 ? AssetImage('images/cloudy.png')
+                    : AssetImage('winds.png'),
+                      height : deviceWidth/7.5,
+                    ),
+                  ),
                   Container(
                     width : deviceWidth/2,
                     decoration: BoxDecoration(
@@ -81,3 +95,12 @@ class _ScrollWeatherState extends State<ScrollWeather> {
     );
   }
 }
+
+
+// Weather ID < 300 -> Thunder Storm there
+// < 600 rain there
+// < 700 snow there
+// < 800 winds/tornado there
+// == 800 clear sky there
+// < 804 clouds
+// else weather uncertain

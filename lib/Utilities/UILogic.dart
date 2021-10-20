@@ -17,9 +17,11 @@ class UI{
     "12" : "December"
   };
 
+
   static List<int>forecastTemps = [];
   static List<String> forecastDates = [];
   static List<String> forecastTimes = [];
+  static List<int> forecastWeatherIds = [];
 
 
   String getDate(){

@@ -9,8 +9,8 @@ late double stackWidth, stackHeight;
 
 class Screen1 extends StatelessWidget{
 
-  final temperature, windSpeed, humidity, weatherDescription, date;
-  Screen1({this.temperature, this.windSpeed, this.humidity, this.weatherDescription,this.date});
+  final temperature, windSpeed, humidity, weatherDescription, date, weatherID;
+  Screen1({this.temperature, this.windSpeed, this.humidity, this.weatherDescription,this.date,this.weatherID});
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +75,14 @@ class Screen1 extends StatelessWidget{
                           top: stackHeight/2.35,
                           left : stackWidth/1.73,
                           child: Image(
-                            image: AssetImage('images/rain.png'),
+                            image : weatherID < 300 ?
+                            AssetImage("images/thunderStorm.png") :
+                            weatherID < 600 ? AssetImage('images/rain.png')
+                                : weatherID < 700 ? AssetImage('images/snow.png')
+                                : weatherID < 800 ? AssetImage('images/winds.png')
+                                : weatherID == 800 ? AssetImage('images/clear-sky.png')
+                                : weatherID <= 804 ? AssetImage('images/cloudy.png')
+                                : AssetImage('winds.png'),
                             height: stackHeight/2.0,
                           ),
                         ),
