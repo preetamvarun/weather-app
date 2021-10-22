@@ -33,9 +33,6 @@ class _LoadingScreenState extends State<LoadingScreen> {
       UI.forecastWeatherIds.add(forecastWeatherData['list'][i]['weather'][0]['id']);
     }
 
-    print(UI.forecastWeatherIds);
-    print(UI.forecastWeatherIds.length);
-
     int temp = weatherData['main']['temp'].round();
     int humidity = weatherData['main']['humidity'].round();
     int windSpeed = weatherData['wind']['speed'].round();
@@ -44,13 +41,17 @@ class _LoadingScreenState extends State<LoadingScreen> {
 
     String dateResult = UI().getDate();
 
+    String dayName = dateResult.split(",")[0].split(" ")[0].substring(0,3);
+    String date = dateResult.split(",")[0].split(" ")[1]+",";
+    String monthName = dateResult.split(",")[1];
 
     Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => Screen1(temperature: temp, humidity: humidity,
-        windSpeed: windSpeed, weatherDescription: weatherDescription, date: dateResult,
-          weatherID: weatherID,
+        windSpeed: windSpeed, weatherDescription: weatherDescription,
+          weatherID: weatherID, dayName: dayName, monthName: monthName,
+          date: date,
         )),);
   }
 

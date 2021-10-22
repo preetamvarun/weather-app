@@ -10,8 +10,9 @@ late double stackWidth, stackHeight;
 
 class Screen1 extends StatelessWidget{
 
-  final temperature, windSpeed, humidity, weatherDescription, date, weatherID;
-  Screen1({this.temperature, this.windSpeed, this.humidity, this.weatherDescription,this.date,this.weatherID});
+  final temperature, windSpeed, humidity, weatherDescription, dayName, date, monthName, weatherID;
+  Screen1({this.temperature, this.windSpeed, this.humidity, this.weatherDescription,this.date,this.weatherID,
+  this.dayName,this.monthName});
 
   @override
   Widget build(BuildContext context) {
@@ -122,7 +123,7 @@ class Screen1 extends StatelessWidget{
                     height : deviceHeight/26,
                   ),
                   Text(
-                    date,
+                    dayName +" "+ date +" "+ monthName,
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 14.0,
@@ -162,7 +163,6 @@ class Screen1 extends StatelessWidget{
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: constraints.maxHeight/4.2,
-                            fontFamily: "Open Sans",
                           ),
                         ),
                         CircleAvatar(
