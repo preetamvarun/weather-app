@@ -53,13 +53,25 @@ class Screen1 extends StatelessWidget{
                           shaderCallback: (Rect x){
                             return kLinearTextGradient.createShader(x);
                           },
-                          child: Text(
-                            temperature < 10 ? "0"+temperature.toString() :
-                                temperature.toString(),
-                              style: Theme.of(context).textTheme.headline4!.copyWith(
-                                fontSize: stackWidth / 1.8,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                temperature < 10 ? "0"+temperature.toString() :
+                                    temperature.toString(),
+                                  style: Theme.of(context).textTheme.headline4!.copyWith(
+                                    fontSize: stackWidth / 1.8,
+                                    color: Colors.white,
+                                  ),
+                              ),
+                              Text(
+                                "O",
+                                style : Theme.of(context).textTheme.headline1!.copyWith(
+                                fontSize: 25.0,
                                 color: Colors.white,
                               ),
+                              )
+                            ],
                           ),
                         ),
                       ),

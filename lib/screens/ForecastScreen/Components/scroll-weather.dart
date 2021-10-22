@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:weather_app/Utilities/UILogic.dart';
 import 'package:weather_app/screens/ForecastScreen/Components/forecast_weather_circle_avatar.dart';
@@ -43,13 +44,25 @@ class _ScrollWeatherState extends State<ScrollWeather> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              UI.forecastTemps[index] < 10 ? "0"+UI.forecastTemps[index].toString()
-                              : UI.forecastTemps[index].toString(),
-                              style: TextStyle(
-                                color: Color(0xFF293E7E),
-                                fontSize: deviceWidth / 10,
-                              ),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  UI.forecastTemps[index] < 10 ? "0"+UI.forecastTemps[index].toString()
+                                  : UI.forecastTemps[index].toString(),
+                                  style: TextStyle(
+                                    color: Color(0xFF293E7E),
+                                    fontSize: deviceWidth / 10,
+                                  ),
+                                ),
+                                Text(
+                                  "O",
+                                  style : TextStyle(
+                                    fontSize: 16.0,
+                                    color : Color(0xFF293E7E),
+                                  )
+                                )
+                              ],
                             ),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,

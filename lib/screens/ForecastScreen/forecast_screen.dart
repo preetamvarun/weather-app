@@ -36,22 +36,20 @@ class ForeCastScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(0,8.0,10.0,0),
-                    child: Image(
-                      image : AssetImage(UI.getCurrentImageName(weatherID)),
-                      height : deviceHeight/9,
-                    ),
+                  Image(
+                    image : AssetImage(UI.getCurrentImageName(weatherID)),
+                    height : deviceHeight/9,
                   ),
-                  Stack(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 8, 10, 0),
-                        child: ShaderMask(
-                          shaderCallback: (Rect x){
-                            return kLinearTextGradient.createShader(x);
-                          },
-                          child: Text(
+                  ShaderMask(
+                    shaderCallback: (Rect x){
+                      return kLinearTextGradient.createShader(x);
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(8.0,8.0,0.0,0.0),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
                             temperature < 10 ? "0"+temperature.toString() :
                             temperature.toString(),
                             style:  Theme.of(context).textTheme.headline4!.copyWith(
@@ -59,9 +57,15 @@ class ForeCastScreen extends StatelessWidget {
                               color: Colors.white,
                             ),
                           ),
-                        ),
+                          Text("O", style: Theme.of(context).textTheme.headline4!
+                              .copyWith(
+                            fontSize: 20.0,
+                            color : Colors.white,
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
                 ],
               ),
