@@ -19,69 +19,54 @@ class _ScrollWeatherState extends State<ScrollWeather> {
         itemCount : UI.forecastTemps.length,
         itemBuilder : (BuildContext context, int index){
           return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 10.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  CircleAvatar(
-                  backgroundColor: Color(0xFFF3F9FE),
-                  radius : deviceWidth/8.5,
-                  child: Image(
-                      image : AssetImage(UI.getForecastImageName(index)),
-                      height : deviceWidth/7.5,
-                    ),
-                  ),
-                  Container(
-                    width : deviceWidth/2,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Color(0xFFDCDCDC)),
-                      borderRadius: BorderRadius.circular(45.0),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(20.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Stack(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(right : 8.0),
-                                child: Text(
-                                  UI.forecastTemps[index].toString(),
-                                  style: TextStyle(
-                                    color: Color(0xFF293E7E),
-                                    fontSize: deviceWidth / 10.5,
-                                  ),
-                                ),
-                              ),
-                              Positioned(
-                                right : 0,
-                                top : 0,
-                                child: Text(
-                                  "o",
-                                  style: TextStyle(
-                                    color: Color(0xFF293E7E),
-                                    fontSize: 14.0,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(bottom : 10.0),
-                                child: Text(UI.month[UI.forecastDates[index].split("-")[1]].toString() + " "+ UI.forecastDates[index].split("-")[2], style: TextStyle(fontSize : 13.0)),
-                              ),
-                              Text(UI.forecastTimes[index].toString()),
-                            ],
-                          )
-                        ],
+              padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 20.0),
+              child: Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    CircleAvatar(
+                    backgroundColor: Color(0xFFF3F9FE),
+                    radius : deviceWidth/9.5,
+                    child: Image(
+                        image : AssetImage(UI.getForecastImageName(index)),
+                        height : deviceWidth/8.5,
                       ),
                     ),
-                  ),
-                ],
+                    Container(
+                      width : deviceWidth/2,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Color(0xFFDCDCDC)),
+                        borderRadius: BorderRadius.circular(45.0),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              UI.forecastTemps[index] < 10 ? "0"+UI.forecastTemps[index].toString()
+                              : UI.forecastTemps[index].toString(),
+                              style: TextStyle(
+                                color: Color(0xFF293E7E),
+                                fontSize: deviceWidth / 10,
+                              ),
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom : 8.0),
+                                  child: Text(UI.month[UI.forecastDates[index].split("-")[1]].toString() + " "+ UI.forecastDates[index].split("-")[2], style: TextStyle(fontSize : 13.0)),
+                                ),
+                                Text(UI.forecastTimes[index].toString()),
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               )
           );
         }

@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:weather_app/Utilities/constants.dart';
 import 'package:weather_app/screens/ExploreScreen/Components/Text.dart';
 import 'package:weather_app/screens/ForecastScreen/Components/scroll-weather.dart';
+import 'package:weather_app/Utilities/UILogic.dart';
 
 class ForeCastScreen extends StatelessWidget {
 
-  final temperature;
-  ForeCastScreen({this.temperature});
+  final temperature, weatherID;
+  ForeCastScreen({this.temperature, this.weatherID});
 
   @override
   Widget build(BuildContext context) {
@@ -23,15 +24,14 @@ class ForeCastScreen extends StatelessWidget {
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               ExploreScreenTextWidget(
-                text: "London",
-                fontSize: deviceWidth/7.5,
+                text: "Paris",
+                fontSize: deviceWidth/10,
               ),
               ExploreScreenTextWidget(
                 text: "Today's weather",
-                fontSize: deviceWidth/20.0,
+                fontSize: deviceWidth/25.0,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -39,8 +39,8 @@ class ForeCastScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(0,8.0,10.0,0),
                     child: Image(
-                      image: AssetImage("images/rain.png"),
-                      height : deviceHeight/8,
+                      image : AssetImage(UI.getCurrentImageName(weatherID)),
+                      height : deviceHeight/9,
                     ),
                   ),
                   Stack(
@@ -52,22 +52,12 @@ class ForeCastScreen extends StatelessWidget {
                             return kLinearTextGradient.createShader(x);
                           },
                           child: Text(
+                            temperature < 10 ? "0"+temperature.toString() :
                             temperature.toString(),
                             style:  Theme.of(context).textTheme.headline4!.copyWith(
-                              fontSize: deviceHeight/7.5,
+                              fontSize: deviceHeight/8.5,
                               color: Colors.white,
                             ),
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        top: 10,
-                        right : 0,
-                        child: Text(
-                          "o",
-                          style: TextStyle(
-                            color : Colors.white70,
-                            fontSize: 25.0,
                           ),
                         ),
                       ),
@@ -79,31 +69,58 @@ class ForeCastScreen extends StatelessWidget {
                 child: Stack(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(8.0, 8, 8, 0),
+                      padding: const EdgeInsets.fromLTRB(30,10,30,10),
                       child: Container(
                         decoration: BoxDecoration(
                           color: Color(0xFFA6C7F5),
-                          borderRadius: BorderRadius.vertical(
-                            top: Radius.circular(60.0),
-                            bottom: Radius.zero,
-                          )
+                          borderRadius: BorderRadius.circular(75.0),
                         ),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 18.0),
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(8.0,10.0,8.0,0.0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.vertical(
-                                top : Radius.circular(50.0),
-                                bottom :Radius.zero,
-                            ),
+                      padding: const EdgeInsets.fromLTRB(20,30,20,10),
+                      child: Container(
+                          height: 350.0,
+                          decoration : BoxDecoration(
+                            color : Colors.white,
+                            borderRadius: BorderRadius.circular(55.0),
                           ),
-                          child: ScrollWeather()
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.symmetric(vertical : 25.0),
+                              child: Container(
+                                height : 6.0,
+                                margin: EdgeInsets.symmetric(horizontal: 130.0),
+                                decoration: BoxDecoration(
+                                  color : Color(0xFF6FA6EB),
+                                  borderRadius: BorderRadius.circular(10.0),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 30.0),
+                              child: Text(
+                                "Future Weather",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize : deviceHeight/35,
+                                ),
+                              ),
+                            )
+                          ],
                         ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(20,130,20,10),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(55),
+                        ),
+                        child: ScrollWeather()
                       ),
                     ),
                   ],

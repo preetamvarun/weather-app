@@ -33,7 +33,7 @@ class Screen1 extends StatelessWidget{
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               ExploreScreenTextWidget(
-                text: "London",
+                text: "Paris",
                 fontSize: deviceWidth/10.5,
               ),
               ExploreScreenTextWidget(
@@ -53,24 +53,14 @@ class Screen1 extends StatelessWidget{
                             return kLinearTextGradient.createShader(x);
                           },
                           child: Text(
-                            temperature.toString(),
+                            temperature < 10 ? "0"+temperature.toString() :
+                                temperature.toString(),
                               style: Theme.of(context).textTheme.headline4!.copyWith(
                                 fontSize: stackWidth / 1.8,
                                 color: Colors.white,
                               ),
                           ),
                         ),
-                      ),
-                      Positioned(
-                        top: stackHeight/10,
-                        left: stackWidth/0.8,
-                        child: Text(
-                          "o",
-                          style: TextStyle(
-                            fontSize: stackWidth / 4.5,
-                            color : Colors.white70,
-                          )
-                        )
                       ),
                      Positioned(
                           top: stackHeight/2.35,
@@ -180,7 +170,7 @@ class Screen1 extends StatelessWidget{
                           child: GestureDetector(
                             onTap: (){
                               Navigator.push(context, MaterialPageRoute(
-                                  builder: (context) => ForeCastScreen(temperature: temperature,)
+                                  builder: (context) => ForeCastScreen(temperature: temperature,weatherID: weatherID,)
                                 )
                               );
                             },
