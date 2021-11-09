@@ -4,6 +4,7 @@ import 'package:weather_app/Utilities/constants.dart';
 import 'package:weather_app/screens/ExploreScreen/Components/Text.dart';
 import 'package:weather_app/screens/ForecastScreen/Components/scroll-weather.dart';
 import 'package:weather_app/Utilities/UILogic.dart';
+import 'package:figma_squircle/figma_squircle.dart';
 
 class ForeCastScreen extends StatelessWidget {
 
@@ -26,7 +27,7 @@ class ForeCastScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               ExploreScreenTextWidget(
-                text: "Paris",
+                text: "Sydney",
                 fontSize: deviceWidth/10,
               ),
               ExploreScreenTextWidget(
@@ -59,7 +60,7 @@ class ForeCastScreen extends StatelessWidget {
                           ),
                           Text("O", style: Theme.of(context).textTheme.headline4!
                               .copyWith(
-                            fontSize: 20.0,
+                            fontSize: 23.0,
                             color : Colors.white,
                             ),
                           ),
@@ -75,56 +76,70 @@ class ForeCastScreen extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.fromLTRB(30,10,30,10),
                       child: Container(
-                        decoration: BoxDecoration(
-                          color: Color(0xFFA6C7F5),
-                          borderRadius: BorderRadius.circular(75.0),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(20,30,20,10),
-                      child: Container(
-                          height: 350.0,
-                          decoration : BoxDecoration(
-                            color : Colors.white,
-                            borderRadius: BorderRadius.circular(55.0),
+                        decoration: ShapeDecoration(
+                            color: Color(0xFFA6C7F5),
+                            shape: SmoothRectangleBorder(
+                                borderRadius: SmoothBorderRadius(
+                                  cornerRadius: 75,
+                                  cornerSmoothing: 1,
+                                )
+                              )
                           ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.symmetric(vertical : 25.0),
-                              child: Container(
-                                height : 6.0,
-                                margin: EdgeInsets.symmetric(horizontal: 130.0),
-                                decoration: BoxDecoration(
-                                  color : Color(0xFF6FA6EB),
-                                  borderRadius: BorderRadius.circular(10.0),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 30.0),
-                              child: Text(
-                                "Future Weather",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize : deviceHeight/35,
-                                ),
-                              ),
-                            )
-                          ],
                         ),
                       ),
-                    ),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(20,130,20,10),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(55),
+                      padding: const EdgeInsets.fromLTRB(20,32,20,10),
+                      child: Expanded(
+                        child: Container(
+                          decoration: ShapeDecoration(
+                              color: Colors.white,
+                              shape: SmoothRectangleBorder(
+                                  borderRadius: SmoothBorderRadius(
+                                    cornerRadius: 52,
+                                    cornerSmoothing: 1,
+                                  )
+                              )
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.symmetric(vertical : 25.0),
+                                child: Container(
+                                  height : 6.0,
+                                  margin: EdgeInsets.symmetric(horizontal: 130.0),
+                                  decoration: BoxDecoration(
+                                    color : Color(0xFF6FA6EB),
+                                    borderRadius: BorderRadius.circular(10.0),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(26.0, 0, 0, 8),
+                                child: Text(
+                                  "Future Weather",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize : deviceHeight/35,
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: Container(
+                                  decoration: ShapeDecoration(
+                                    shape: SmoothRectangleBorder(
+                                      borderRadius: SmoothBorderRadius(
+                                        cornerRadius: 52,
+                                        cornerSmoothing: 1,
+                                      )
+                                    )
+                                  ),
+                                  child: ScrollWeather(),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                        child: ScrollWeather()
                       ),
                     ),
                   ],

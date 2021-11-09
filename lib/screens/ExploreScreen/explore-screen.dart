@@ -34,8 +34,8 @@ class Screen1 extends StatelessWidget{
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               ExploreScreenTextWidget(
-                text: "Paris",
-                fontSize: deviceWidth/10.5,
+                text: "Sydney",
+                fontSize: deviceWidth/10,
               ),
               ExploreScreenTextWidget(
                 text: weatherDescription,
@@ -48,7 +48,7 @@ class Screen1 extends StatelessWidget{
                     children: [
                       Positioned(
                       top: stackHeight/8,
-                      left: stackWidth/1.65,
+                      left: stackWidth/1.45,
                         child: ShaderMask(
                           shaderCallback: (Rect x){
                             return kLinearTextGradient.createShader(x);
@@ -67,10 +67,10 @@ class Screen1 extends StatelessWidget{
                               Text(
                                 "O",
                                 style : Theme.of(context).textTheme.headline1!.copyWith(
-                                fontSize: 25.0,
+                                fontSize: 26.0,
                                 color: Colors.white,
                               ),
-                              )
+                              ),
                             ],
                           ),
                         ),
@@ -124,16 +124,8 @@ class Screen1 extends StatelessWidget{
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Image(
-                    image: AssetImage('images/wind.png'),
-                    height : deviceHeight/26,
-                    color: Colors.white,
-                  ),
-                  Image(
-                    image: AssetImage('images/waves.png'),
-                    color: Colors.white,
-                    height : deviceHeight/26,
-                  ),
+                  buildImage(deviceHeight,"wind",true),
+                  buildImage(deviceHeight,"waves",true),
                   Text(
                     dayName +" "+ date +" "+ monthName,
                     style: TextStyle(
@@ -141,14 +133,8 @@ class Screen1 extends StatelessWidget{
                       fontSize: 14.0,
                     ),
                   ),
-                  Image(
-                    image: AssetImage('images/cloudy.png'),
-                    height : deviceHeight/26,
-                  ),
-                  Image(
-                    image: AssetImage('images/storm.png'),
-                    height : deviceHeight/26,
-                  ),
+                  buildImage(deviceHeight,"cloudy",false),
+                  buildImage(deviceHeight,"storm",false),
                 ],
               ),
               Padding(
@@ -201,6 +187,14 @@ class Screen1 extends StatelessWidget{
           ),
         ),
       ),
+    );
+  }
+
+  Image buildImage(double deviceHeight, String imageName, bool setColor) {
+    return Image(
+      image: AssetImage('images/$imageName.png'),
+      height : deviceHeight/26,
+      color : setColor == true ? Colors.white : null,
     );
   }
 }
