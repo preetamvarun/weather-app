@@ -7,7 +7,7 @@ class NetworkHelper{
   static List<int>forecastedTemperatures = [];
 
   Future getCurrentWeatherData() async{
-    http.Response res = await http.get(Uri.parse('https://api.openweathermap.org/data/2.5/weather?q=Sydney&units=metric&appid=$kApiKey'));
+    http.Response res = await http.get(Uri.parse('https://api.openweathermap.org/data/2.5/weather?q=toronto&units=metric&appid=$kApiKey'));
     if(res.statusCode == 200){
        return jsonDecode(res.body);
     }
@@ -17,7 +17,7 @@ class NetworkHelper{
   }
 
   Future getForecastedWeatherData() async{
-    http.Response res = await http.get(Uri.parse('https://api.openweathermap.org/data/2.5/forecast?q=Sydney&units=metric&appid=$kApiKey'));
+    http.Response res = await http.get(Uri.parse('https://api.openweathermap.org/data/2.5/forecast?q=toronto&units=metric&appid=$kApiKey'));
     if(res.statusCode == 200){
       return jsonDecode(res.body);
     }

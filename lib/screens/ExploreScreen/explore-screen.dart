@@ -34,7 +34,7 @@ class Screen1 extends StatelessWidget{
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               ExploreScreenTextWidget(
-                text: "Sydney",
+                text: "Toronto",
                 fontSize: deviceWidth/10,
               ),
               ExploreScreenTextWidget(
