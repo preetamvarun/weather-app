@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:weather_app/Utilities/UILogic.dart';
 import 'package:weather_app/screens/ForecastScreen/Components/forecast_weather_circle_avatar.dart';
-import 'package:figma_squircle/figma_squircle.dart';
 
 class ScrollWeather extends StatefulWidget {
 
@@ -21,20 +20,21 @@ class _ScrollWeatherState extends State<ScrollWeather> {
         scrollbarTheme: ScrollbarThemeData(
           thumbColor: MaterialStateProperty.all(Color(0xFFA6C7F5)),
           crossAxisMargin: 2,
+          showTrackOnHover: true,
         ),
       ),
-      child: Scrollbar(
-        isAlwaysShown: true,
-        showTrackOnHover : true,
-        thickness: 8,
-        radius: Radius.circular(10),
-        child: ListView.builder(
-            scrollDirection: Axis.vertical,
-            itemCount : UI.forecastTemps.length,
-            itemBuilder : (BuildContext context, int index){
-              return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 20.0),
-                  child: Container(
+      child: Container(
+        padding: EdgeInsets.only(bottom: 55),
+        child: Scrollbar(
+          isAlwaysShown: true,
+          thickness: 8,
+          radius: Radius.circular(10),
+          child: ListView.builder(
+              scrollDirection: Axis.vertical,
+              itemCount : UI.forecastTemps.length,
+              itemBuilder : (BuildContext context, int index){
+                return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -92,10 +92,10 @@ class _ScrollWeatherState extends State<ScrollWeather> {
                           ),
                         ),
                       ],
-                    ),
-                  )
-              );
-            }
+                    )
+                );
+              }
+          ),
         ),
       ),
     );
